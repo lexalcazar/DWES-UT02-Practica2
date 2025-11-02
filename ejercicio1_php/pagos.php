@@ -57,6 +57,36 @@ $usuariosJSON = '[
                 "importe":20,
                 "estado":"Pagado",
                 "fecha":"2025-01"
+            },
+               {   "mes":"Julio",
+                "importe":20,
+                "estado":"Pagado",
+                "fecha":"2025-07"
+            },
+              {   "mes":"Agosto",
+                "importe":20,
+                "estado":"Pagado",
+                "fecha":"2025-08"
+            },
+              {   "mes":"Septiembre",
+                "importe":20,
+                "estado":"Pagado",
+                "fecha":"2025-09"
+            },
+              {   "mes":"Octubre",
+                "importe":20,
+                "estado":"Pagado",
+                "fecha":"2025-10"
+            },
+              {   "mes":"Noviembre",
+                "importe":20,
+                "estado":"Pagado",
+                "fecha":"2025-11"
+            },
+              {   "mes":"Diciembre",
+                "importe":20,
+                "estado":"Pendiente",
+                "fecha":""
             }
 
                 
@@ -104,6 +134,36 @@ $usuariosJSON = '[
                 "importe":20,
                 "estado":"Pagado",
                 "fecha":"2025-01"
+            },
+               {   "mes":"Julio",
+                "importe":20,
+                "estado":"Pagado",
+                "fecha":"2025-07"
+            },
+              {   "mes":"Agosto",
+                "importe":20,
+                "estado":"Pagado",
+                "fecha":"2025-08"
+            },
+              {   "mes":"Septiembre",
+                "importe":20,
+                "estado":"Pagado",
+                "fecha":"2025-09"
+            },
+              {   "mes":"Octubre",
+                "importe":20,
+                "estado":"Pagado",
+                "fecha":"2025-10"
+            },
+              {   "mes":"Noviembre",
+                "importe":20,
+                "estado":"Pagado",
+                "fecha":"2025-11"
+            },
+              {   "mes":"Diciembre",
+                "importe":20,
+                "estado":"Pendiente",
+                "fecha":""
             }
 
                 
@@ -126,28 +186,58 @@ $usuariosJSON = '[
             {   "mes":"Febrero",
                 "importe":20,
                 "estado":"Pagado",
-                "fecha":"2025-01"
+                "fecha":"2025-02"
             },
              
             {   "mes":"Marzo",
                 "importe":20,
                 "estado":"Pagado",
-                "fecha":"2025-01"
+                "fecha":"2025-03"
             },
              
             {   "mes":"Abril",
                 "importe":20,
                 "estado":"Pagado",
-                "fecha":"2025-01"
+                "fecha":"2025-04"
             },
              
             {   "mes":"Mayo",
                 "importe":20,
                 "estado":"Pagado",
-                "fecha":"2025-01"
+                "fecha":"2025-05"
             },
              
             {   "mes":"Junio",
+                "importe":20,
+                "estado":"Pendiente",
+                "fecha":""
+            },
+              {   "mes":"Julio",
+                "importe":20,
+                "estado":"Pagado",
+                "fecha":"2025-07"
+            },
+              {   "mes":"Agosto",
+                "importe":20,
+                "estado":"Pagado",
+                "fecha":"2025-08"
+            },
+              {   "mes":"Septiembre",
+                "importe":20,
+                "estado":"Pagado",
+                "fecha":"2025-09"
+            },
+              {   "mes":"Octubre",
+                "importe":20,
+                "estado":"Pagado",
+                "fecha":"2025-10"
+            },
+              {   "mes":"Noviembre",
+                "importe":20,
+                "estado":"Pagado",
+                "fecha":"2025-11"
+            },
+              {   "mes":"Diciembre",
                 "importe":20,
                 "estado":"Pendiente",
                 "fecha":""
