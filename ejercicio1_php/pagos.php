@@ -180,11 +180,13 @@ for ($i = 0; $i < count($usuarios); $i++) {
     $usuario = $usuarios[$i];
       
     //  Mostrar datos Usuario
-    echo "<p>" . $usuario['nombre'] . "</p>";
-    echo "<p>" . $usuario['apellidos'] . "</p>";
-    echo "<p>" . $usuario['dni'] . "</p>";
-    echo "<p>" . $usuario['email'] . "</p>";
-    echo "<p>" . $usuario['telefono'] . "</p>";
+    echo "<h2>Usuario " . $usuario['id'] . "</h2>";
+    echo "<p>id: " . $usuario['id'] . "</p>";
+    echo "<p>Nombre: " . $usuario['nombre'] . "</p>";
+    echo "<p>Apellidos: " . $usuario['apellidos'] . "</p>";
+    echo "<p>DNI: " . $usuario['dni'] . "</p>";
+    echo "<p>email: " . $usuario['email'] . "</p>";
+    echo "<p>Teléfono: " . $usuario['telefono'] . "</p>";
 
     // Mostramos el encabazado de la tabla
     echo "<table border='1' cellpadding='5' cellspacing='0'>";
