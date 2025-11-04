@@ -24,7 +24,7 @@
 //    - Manual oficial: https://www.php.net/manual/es/language.types.array.php
 // ============================================================
 
-$frutas = ["Manzana", "Pera", "Naranja"]; 
+//$frutas = ["Manzana", "Pera", "Naranja"]; 
 // Equivalente a:
 // $frutas = array("Manzana", "Pera", "Naranja");
 
