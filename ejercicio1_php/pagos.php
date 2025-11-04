@@ -13,6 +13,71 @@
 // No es necesario declarar el tipo (PHP es un lenguaje débilmente tipado).
 // Ejemplo: $nombre = "Laura";  $edad = 25;
 
+// ======================================================================
+//  ARRAYS EN PHP – DOCUMENTACIÓN Y EJEMPLOS
+// ======================================================================
+
+// ============================================================
+// 1 ARRAYS INDEXADOS
+//    - Son arrays donde los índices son numéricos (0, 1, 2, …).
+//    - PHP los crea automáticamente si no los indicamos.
+//    - Manual oficial: https://www.php.net/manual/es/language.types.array.php
+// ============================================================
+
+$frutas = ["Manzana", "Pera", "Naranja"]; 
+// Equivalente a:
+// $frutas = array("Manzana", "Pera", "Naranja");
+
+// Acceso:
+//echo $frutas[0]; // Muestra "Manzana"
+
+
+// ============================================================
+// 2 ARRAYS ASOCIATIVOS
+//    - Los índices no son números, sino cadenas (claves).
+//    - Se parecen a un diccionario u objeto simple.
+//    - Manual oficial: https://www.php.net/manual/es/language.types.array.php
+// ============================================================
+
+//$persona = [
+//    "nombre"   => "Laura",
+//    "edad"     => 25,
+//    "email"    => "laura@example.com"
+//];
+
+// Acceso:
+//echo $persona["nombre"]; // Muestra "Laura"
+
+
+// ============================================================
+// 3 ARRAYS MULTIDIMENSIONALES
+//    - Son arrays que contienen otros arrays dentro.
+//    - Pueden combinarlos: indexados, asociativos o ambos.
+//    - Muy usados para representar tablas, JSON, datos de BD…
+// ============================================================
+
+//$usuarios = [
+  //  [
+    //    "id" => 1,
+    //    "nombre" => "Laura",
+    //    "pagos" => [
+    //        ["mes" => "Enero",   "importe" => 20, "estado" => "Pagado"],
+    //        ["mes" => "Febrero", "importe" => 20, "estado" => "Pendiente"]
+    //    ]
+    //],
+    //[
+    //    "id" => 2,
+    //    "nombre" => "Carlos",
+    //    "pagos" => [
+    //        ["mes" => "Enero",   "importe" => 20, "estado" => "Pagado"],
+    //        ["mes" => "Marzo",   "importe" => 20, "estado" => "Pagado"]
+    //    ]
+    //]
+//];
+
+// Acceder al importe del segundo pago del primer usuario:
+//echo $usuarios[0]["pagos"][1]["importe"]; // Resultado: 20
+
 // 1. Definir los datos en formato JSON (varios usuarios)
 $usuariosJSON = '[
     {
@@ -286,6 +351,8 @@ for ($i = 0; $i < count($usuarios); $i++) {
          <th>Estado pago</th>
          <th>Fecha pago</th>
          </tr>";
+    // declaramos la variable para almacenar el total
+    $totalAbonado = 0;
     // Recorremos el array de pagos
    for($j = 0;$j<count($usuario['pagos']);$j++){
         $pago=$usuario['pagos'][$j];
@@ -303,9 +370,13 @@ for ($i = 0; $i < count($usuarios); $i++) {
         // En este caso, comprobamos si el atributo estado es "Pendiente" y si la fecha de pago está vacía.
         
         if ($pago['estado'] === "Pendiente" || empty($pago['fecha'])){
-            $color = "background-color: red;";
+            $color = "background-color: red;"; // si se cumlpe cambia el fondo de color a rojo
         } else {
-           $color = "background-color: white;";
+           $color = "background-color: white;"; // sino se queda con fondo blanco
+        }
+          // si está pagado (y con fecha), suma al total
+        if ($pago['estado'] === "Pagado" && !empty($pago['fecha'])) {
+            $totalAbonado += (float)$pago['importe'];
         }
 
         // Mostrar fila de la tabla
@@ -315,7 +386,17 @@ for ($i = 0; $i < count($usuarios); $i++) {
         echo "<td style='$color'>" . $pago['estado'] . "</td>";
         echo "<td>" . $pago['fecha'] . "</td>";
         echo "</tr>";    
-    }// Volvemos al for de pagos para continuar mostrando los datos de pago
+    }// Volvemos al for de pagos para continuar mostrando los datos de 
+        
+    // fila de TOTAL al final de la tabla
+    
+    $totalFormateado = number_format($totalAbonado, 2, ',', '.');
+
+    echo "<tr style='font-weight:bold; background:#f3f3f3;'>
+            <td>Total abonado</td>
+            <td>{$totalFormateado} €</td>
+            <td colspan='2'></td>
+          </tr>";
 
   echo "</table>";
 }
