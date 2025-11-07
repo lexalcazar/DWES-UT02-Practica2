@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+    <title>Usuarios — Pagos</title>
+    <meta charset="UTF-8" />
+    <style>
+        body { font-family: system-ui, Arial, sans-serif; line-height: 1.4; }
+        h1 { margin-bottom: .5rem; }
+        .usuario { margin: 1.5rem 0; }
+        table { border-collapse: collapse; width: 100%; max-width: 900px; }
+        th, td { border: 1px solid #ddd; padding: 8px; }
+        th { background: #f6f6f6; text-align: left; }
+        .subtabla { margin-top: .5rem; }
+        .rojo { color: #b00020; font-weight: 600; }
+        .verde { color: #0a7d00; font-weight: 600; }
+        .titulo { font-weight: 700; margin: .5rem 0; }
+        .separador { margin: 1rem 0; border: 0; border-top: 1px solid #e5e5e5; }
+    </style>
+</h:head>
+
+<h:body>
+    <h1>Listado de usuarios y pagos</h1>
+
+    <!-- Recorre usuarios -->
+    <ui:repeat value="#{helloBean.usuarios}" var="u" varStatus="st">
+
+        <div class="usuario">
+            <div class="titulo">#{st.index + 1}. #{u.nombre} #{u.apellidos}</div>
+
+            <!-- Datos personales -->
+            <table>
+                <tbody>
+                <tr>
+                    <th>Nombre</th>
+                    <td>#{u.nombre}</td>
+                </tr>
+                <tr>
+                    <th>Apellidos</th>
+                    <td>#{u.apellidos}</td>
+                </tr>
+                <tr>
+                    <th>DNI</th>
+                    <td>#{u.dni}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>#{u.email}</td>
+                </tr>
+                <tr>
+                    <th>Edad</th>
+                    <td>#{u.edad}</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <!-- Pagos mensuales -->
+            <table class="subtabla">
+                <thead>
+                <tr>
+                    <th>Mes</th>
+                    <th>Importe / Estado</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Bucle para recorrer meses-->
+                <ui:repeat value="#{helloBean.meses}" var="mes">
+                    <tr>
+                        <td>#{mes}</td>
+                        <td>
+                            <!-- Si NO hay pago (null) -->
+                            <h:panelGroup rendered="#{empty u.pagos[mes]}">
+                                <span class="rojo">NO PAGADO</span>
+                            </h:panelGroup>
+                            <!-- Si hay pago -->
+                            <h:panelGroup rendered="#{not empty u.pagos[mes]}">
+                                <h:outputText value="#{u.pagos[mes]}">
+                                    <f:convertNumber type="currency" currencySymbol="€" maxFractionDigits="2"/>
+                                </h:outputText>
+                            </h:panelGroup>
+                        </td>
+                    </tr>
+                </ui:repeat>
+                </tbody>
+
+                <!-- Total anual -->
+                <tfoot>
+                <tr>
+                    <th>Total anual</th>
+                    <th>
+                        <h:outputText value="#{u.totalAnual}">
+                            <f:convertNumber type="currency" currencySymbol="€" maxFractionDigits="2"/>
+                        </h:outputText>
+                    </th>
+                </tr>
+                </tfoot>
+            </table>
+
+            <!-- Mensaje condicional -->
+            <h:panelGroup rendered="#{u.totalAnual lt 100}">
+                <div class="rojo">El usuario no está al día con la cuota</div>
+            </h:panelGroup>
+            <h:panelGroup rendered="#{u.totalAnual ge 100}">
+                <div class="verde">El usuario está al corriente de pagos</div>
+            </h:panelGroup>
+
+            <hr class="separador"/>
+        </div>
+    </ui:repeat>
+
+</h:body>
+</html>
