@@ -2,3 +2,5 @@
 #El ejercicio de Django esta en la rama master
 #He tenido problemas a la hora de subir las carpetas
 #y me ha sido imposible fusionar las dos ramas en github
+
+# Tras varios errores y cambios, al final erstan los tres ejerccios en la rama main
