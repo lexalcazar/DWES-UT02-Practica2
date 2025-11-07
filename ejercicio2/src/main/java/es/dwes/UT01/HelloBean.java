@@ -15,8 +15,10 @@ import jakarta.inject.Named;
 public class HelloBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
-    // ---- Clase Usuario
+    // Creamos la clase usuario con los datos solicitados
+    // para el usuario
+    
+    // Clase Usuario
     public static class Usuario {
         private String nombre;
         private String apellidos;
@@ -24,7 +26,7 @@ public class HelloBean implements Serializable {
         private String email;
         private int edad;
         private Map<String, Double> pagos; // mes -> importe (o null)
-
+    // Constructor 
         public Usuario(String nombre, String apellidos, String dni, String email, int edad, Map<String, Double> pagos) {
             this.nombre = nombre;
             this.apellidos = apellidos;
@@ -103,7 +105,7 @@ public class HelloBean implements Serializable {
         myArray[1] = new Usuario("Ana", "Sánchez", "12345678Z", "ana@mail.com", 20, pagosAna);
     }
 
-    // Mapa con todos los meses a null (para mantener orden y que salgan todos)
+    // Mapa con todos los meses a null (utilizando LinkedHashSet para mantener orden y que salgan todos)
     private Map<String, Double> crearPagosVacios() {
         Map<String, Double> m = new LinkedHashMap<>();
         for (String mes : meses) m.put(mes, null);

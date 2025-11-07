@@ -66,12 +66,12 @@
                 </tr>
                 </thead>
                 <tbody>
-                <!-- Recorre meses en orden fijo -->
+                <!-- Bucle para recorrer meses-->
                 <ui:repeat value="#{helloBean.meses}" var="mes">
                     <tr>
                         <td>#{mes}</td>
                         <td>
-                            <!-- Si NO hay pago (null) -->
+                            <!-- Si NO hay pago -->
                             <h:panelGroup rendered="#{empty u.pagos[mes]}">
                                 <span class="rojo">NO PAGADO</span>
                             </h:panelGroup>
